@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat';
+    color: #fff;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+*::selection {  /*targets the part of the element that is selected by the user*/
+  background-color: #fff;
+  color: #95c11e;
+}
+body::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+  background: #95c11e;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;
+
+  border-radius: 50px;
+}
+body {
+  overflow-x: hidden;
+}
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    position: fixed;
+    /* z-index only works on elements that have a position set to something like fixed,relative..  */
+    z-index: 99; /*value appears on top*/
+    transition: all linear 0.1s;
+}
+#cursor-blur{
+    height: 500px;
+    width: 500px;
+    background-color: rgba(150, 193, 30, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    /* The filter property lets you apply visual effects (like blur, brightness, contrast, grayscale, etc.) to an element. */
+    filter: blur(80px); 
+    z-index: 9;
+    transition: all linear 0.4s;
+}
+#nav{
+    height: 130px;
+    width: 100%;
+    /*background-color: red; */
+    display: flex;
+    align-items: center;
+    padding: 0 120px;
+    justify-content: flex-start;  /* start content from x axis*/
+    gap: 50px;    /* gap between elements*/
+    position: fixed;  /* to keep it on top while scrolling*/
+    z-index: 999;  /* to keep it on top of video*/
+}
+#nav img{
+    height: 75px;
+}
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1.15vw;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;  /* to cover the entire area without space*/
+    position: fixed;
+    z-index: -1;  /* to keep it behind the content*/
+}
+#main{
+    position: relative;
+    background-color: rgba(0,0,0,0.39); /* to darken the video*/
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+#page1 h1{
+    font-size: 140px;
+    font-weight: 900;
+    position: relative;  /* to position the pseudo-element relative to h1 */
+}
+#page1 h1::before{   /*sudo elemnt - insert content before the actual text/content of an element */
+    content: "EAT. DRINK. PLAY.";  /* text to be inserted */
+    position: absolute;
+    color: #000;
+    top: -5px;    /*shift the pseudo-element 6 pixels upward and 6 pixels to the left from its original position*/
+    left: -5px;
+    -webkit-text-stroke: 1.5px #95C11E; /* adds outline(stroke) around text */
+    z-index: -1;  /* -1 means to keep it behind the text*/
+
+}
+#page1 h2{
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#page1 p{
+    font-size: 20px;
+    font-weight: 500;
+    width: 40%;
+}
+#page1 #arrow{
+     height: 250px;
+     width: 250px;
+     background-color: transparent;
+     border: 2px solid #95C11E;
+     position: absolute;
+     display: flex;
+     left: -2%;
+     bottom: 0%;
+     align-items: center;
+     justify-content:center ;
+     border-radius: 50%;
+     transition: all ease 0.5;
+}
+#page1 #arrow i{
+    font-size: 50px;
+    font-weight: 100;
+}
+#page1 #arrow:hover{
+    scale: 0.4;
+    background-color: #95C11E;
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+#scroller{
+    /*background-color: red;*/
+    white-space: nowrap; /* Do not allow the text to wrap onto the next line.
+                            All the content stays on one single line */
+    overflow-x: auto; /* Show a horizontal scrollbar only if needed(if content overflows width */
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll; 
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#scroller h4{
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: gilroy;
+    margin-right: 20px;
+    transition: all linear 0.3s; /* linear->moves at constant speed */
+    color: #000;
+    -webkit-text-stroke: 2px #ffffff;
+}
+#scroller h4:hover{
+    color: #95C11E;
+    -webkit-text-stroke: 2px #95c11e;
+}
+/* @keyframes => makes an element move horizontally (scroll left) continuously. */
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+         /* The starting state of the animation.The element starts in its normal position (no movement). */
+    }
+    to{
+        transform: translateX(-100%);
+        /* The ending state of the animation.Moves the element 100% of its width to the left (off-screen). */
+    }
+}
+#about-us{
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    position: relative;
+    z-index: 10;
+    display:flex;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: space-around;
+}
+#about-us img{
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+#about-us-in h3{
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+#about-us-in p{
+    font-size: 20px;
+    line-height: 26px;  /* The space from one line to the next is 26px */
+}
+#cards-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+    z-index: 10;
+}
+.card{
+    height: 80%;
+    width: 24%;
+    /* background-color: blue; */
+    border-radius: 20px;
+    background-size: cover;  /*image fills the entire area*/
+    background-position: center;  /*centers the background image both horizontally and vertically*/
+    overflow: hidden;  /*hides any content that goes outside the element’s box (its defined width or height)*/
+    transition: all ease 0.6s;
+}
+#card1{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG15_sMMLiU8QL0cE2E4l9ZU7f8esXAamVqXbCrI2Lln_YOaKd);
+}
+#card2{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCikclc2q_qbYbcB72YHPtg6quZR15AgI2QzyJCa5vSBo8DRl);
+}
+#card3{
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/03/pro-joey-1024x788.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    padding: 30px;
+    padding-top: 160px;
+    opacity: 0;  /*element is completely transparent (invisible) — but still present in the page layout.
+                 The div won’t be visible, but It still occupies space in the layout. It can still receive clicks or hover events */
+    transition: all ease 0.6s; /*element will smoothly animate all property changes over 0.6 seconds*/
+
+}
+.overlay h4{
+    color: #000;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.overlay p{
+    color: #000;
+    font-size: 18px;
+}
+.card:hover .overlay{
+    opacity: 1;  /*When you hover over the .card element, the .overlay element inside it becomes visible (by changing its opacity to 1)*/
+}
+.card:hover{
+    transform: rotate3d(-1,1,0,20deg); /*element will rotate in 3D space
+                        -1 -> (tilt backward along X), 1 -> (tilt forward along Y), 0 -> (no rotation around Z), 20deg -> (angle of rotation)*/
+}
+#green-div{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom, #119f3a, #ace022);
+}
+#green-div h4{
+    width: 45%;
+    line-height: 50px;
+    color: #000;
+    text-align: center;
+    font-weight: 800;
+    font-size: 27px;
+    text-transform: uppercase;
+}
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width:14%;
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+#page3 > p{   /* > means direct (all direct <p> elements who are immediate children) */
+    font-size: 35px;
+    font-weight: 700;
+    width: 60%;
+    line-height: 45px;
+    text-align: center;
+}
+#page3 img{
+    position: absolute;
+    height: 60px;
+}
+#page3 #colon1{
+    left: 15%;
+    top: 25%;
+}
+#page3 #colon2  {
+    bottom: 30%;
+    right:  15%;
+}
+#page4{
+    height: 30vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+#page4 h1{
+    font-size: 6.4vw;
+    position: absolute;
+    font-weight: 900;
+    font-family: gilroy;
+    color:#000;
+    -webkit-text-stroke: 2px #fff;
+    top:-15% ;   /*Places the <h1> at the top of its positioned container.*/
+}
+.elem{
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    display: flex;
+    color:#000;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    font-size: 2vw;
+    position: absolute;
+    z-index: 10;
+}
+.elem img{
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+     transition: all ease 0.5s;
+     scale:1.1;  /* scale controls the size transformation of an element
+                    it means the element is increased to 110% of its original size*/
+}
+.elem:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+.elem:hover img{
+    scale:1;
+}
+#footer{
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom,#119F3a 0%,#a3d421 80%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6.5vw;
+    padding: 0 100px;
+}
+#footer > img{
+    position: absolute;
+    left:0;
+    height: 100%;
+    z-index: 0;
+}
+#f1 img{
+    height: 100px;
+}
+#f1,#f2,#f3,#f4{
+    width: fit-content;  /*width will automatically adjust to fit its content*/
+    position: relative;
+    z-index: 99;
+}
+#f2 h3{
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px; 
+}
+#f3 h3 {
+  font-size: 1.6vw;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+#f4 h4 {
+  font-size: 1vw;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
