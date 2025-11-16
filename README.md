@@ -2,7 +2,7 @@
 
 A modern, interactive website for **Sidcup Family Golf** - a multipurpose golf facility located in Sidcup, South East London. This website features smooth animations, custom cursor effects, and a beautiful user interface built with HTML, CSS, and JavaScript.
 
-## 🎯 Features
+## Features
 
 - **Custom Cursor Effects**: Interactive cursor with blur effect that follows mouse movement
 - **Video Background**: Full-screen video background with overlay
@@ -18,7 +18,7 @@ A modern, interactive website for **Sidcup Family Golf** - a multipurpose golf f
   - Call-to-action section
   - Footer with contact information
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Golf-Play-Website/
@@ -30,7 +30,7 @@ Golf-Play-Website/
 └── README.md           # Project documentation
 ```
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**: Structure and content
 - **CSS3**: Styling, animations, and responsive design
@@ -39,7 +39,7 @@ Golf-Play-Website/
   - GSAP Core Library (v3.13.0)
   - ScrollTrigger Plugin (v3.13.0)
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ Golf-Play-Website/
   - VS Code Live Server extension
 - Navigate to `http://localhost:8000` (or your server's port)
 
-## 📋 File Descriptions
+## File Descriptions
 
 ### `Index.html`
 The main HTML structure containing:
@@ -104,7 +104,7 @@ JavaScript functionality:
   - Quote marks animation
   - Page 4 heading animation
 
-## 🎨 Key Features Explained
+## Key Features Explained
 
 ### Custom Cursor
 - Two cursor elements: a small dot (`#cursor`) and a large blur effect (`#cursor-blur`)
@@ -128,14 +128,14 @@ JavaScript functionality:
 - Infinite horizontal scrolling animation
 - Displays services: TOPTRACER RANGE, GOLF LESSONS, ADVENTURE GOLF, COFFEE SHOP, LEAGUES
 
-## 🎯 Color Scheme
+## Color Scheme
 
 - **Primary Green**: `#95C11E` (lime green)
 - **Gradient Green**: `#119F3A` to `#a3d421`
 - **Background**: Black (`#000`) with transparency overlays
 - **Text**: White (`#fff`) with black accents
 
-## 📱 Browser Compatibility
+## Browser Compatibility
 
 - Chrome (recommended)
 - Firefox
@@ -143,7 +143,7 @@ JavaScript functionality:
 - Edge
 - Opera
 
-## 🔧 Customization
+## Customization
 
 ### Changing Colors
 Edit the color values in `style.css`:
@@ -160,28 +160,28 @@ Edit the color values in `style.css`:
 - Change scroll trigger points (`start` and `end` values)
 - Adjust animation duration and easing
 
-## 📝 Notes
+## Notes
 
 - The website uses external CDN links for GSAP libraries
 - Some images are loaded from external URLs
 - The video file (`video.mp4`) should be in the same directory as `Index.html`
 - Font family used: 'Montserrat' (ensure it's available or add a fallback)
 
-## 🐛 Known Issues
+## Known Issues
 
 - Some external image URLs may become unavailable over time
 - Video file size may affect loading performance
 - GSAP markers are commented out but can be enabled for debugging
 
-## 📄 License
+## License
 
 This project is open source and available for educational purposes.
 
-## 👤 Author
+## Author
 
 Golf Play Website - Sidcup Family Golf
 
-## 🔗 External Resources
+## External Resources
 
 - **GSAP**: https://greensock.com/gsap/
 - **Remix Icon**: Used for arrow icon (via CDN)
